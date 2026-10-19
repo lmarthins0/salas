@@ -74,7 +74,7 @@
                                         @csrf
                                         @method('delete')
                                         @if ($sala->reservas->isEmpty())
-                                            <button type="submit" class="btn btn-danger"
+                                            <button data-sala-id="{{ $sala->id }}" type="submit" class="btn btn-danger"
                                                 onclick="return confirm('Tem certeza?');">
                                                 <i class="fa fa-trash"></i>
                                             </button>
