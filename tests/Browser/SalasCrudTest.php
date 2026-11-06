@@ -33,7 +33,8 @@ class SalasCrudTest extends DuskTestCase
             $categoria_id = \App\Models\Categoria::select('id')->latest()->first();
 
             //2. Após a criação da categoria, cria-se uma sala com ela.
-            $browser->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao') //menu
+            $browser->waitFor('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+                ->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao') //menu
                 ->pause(1850)
                 ->click('a[href="salas/create"]')
                 ->pause(1250)
@@ -47,7 +48,8 @@ class SalasCrudTest extends DuskTestCase
 
             $sala_id = \App\Models\Sala::select('id')->latest()->first();
 
-            $browser->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+            $browser->waitFor('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+                ->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
                 ->click('a[href="salas/listar"]')
                 ->assertSee('Sala de Informática Teste')
                 ->pause(2000)
@@ -56,7 +58,8 @@ class SalasCrudTest extends DuskTestCase
                 ->press('Enviar')
                 ->assertSee('Sala atualizada com sucesso');
 
-            $browser->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+            $browser->waitFor('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+                ->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
                 ->click('a[href="salas/listar"]')
                 ->assertSee('Sala de Informática Teste alterada.')
                 ->press("button[data-sala-id='{$sala_id->id}']")

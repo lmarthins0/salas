@@ -33,7 +33,8 @@ class ReservaCrudTest extends DuskTestCase
             $categoria_id = \App\Models\Categoria::select('id')->latest()->first();
 
             //2. Após a criação da categoria, cria-se uma sala com ela.
-            $browser->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao') //menu
+            $browser->waitFor('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao')
+                ->click('#navbarDropdowniclassfafausercogariahiddentrueiAdministrao') //menu
                 ->pause(1850)
                 ->click('a[href="salas/create"]')
                 ->pause(1250)
